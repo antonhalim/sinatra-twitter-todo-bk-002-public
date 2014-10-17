@@ -2,17 +2,22 @@
 
 # Our Gemfile has the twitter gem and config/environment requires it.
 
-# We're going to rack this up as middleware in config.ru.
+class GetTweets
+  attr_reader :handle
 
-class TwitterConnection
-  TWITTER = Twitter::REST::Client.new do |config|
-    config.consumer_key = "9vahfyWzOnjJxj83SJxROQ"
-    config.consumer_secret = "aYCt7k10fYf4svlSNz9oP7GbFi1QYPnUdvpOZpjgwYM"
-    config.access_token = "2085091-QdSttXlwq50BXqOUrNmd2zIPdQyxP873TzzsKhW8k"
-    config.access_token_secret = "MxwEh2JRvmHBYcMfsFv3o0MYhMx2yM77tVABftVboAE"
+  def initialize(handle)
+    @handle = handle
   end
 
-  def get_search_results(handle)
+  TWITTER = Twitter::REST::Client.new do |config|
+    # go to https://dev.twitter.com/apps and create your own twitter app. Then grab your keys and replace these ones
+    config.consumer_key = "SOo0mIfGvsFVP7OlrNVaRS7bE"
+    config.consumer_secret = "yzNnxhbZknAcIOWXiPAL7UWVrdqr3hBYgLJPs6sTqaYiCVEXHh"
+    config.access_token = "276237692-vwCB7oLa5TWBoDFv7MVdap6aDxzAqdVFbpyjrwQM"
+    config.access_token_secret = "iXQ7vSO7Rvq8zVnZO3u8LDRMQvTzcHCfTRDUTBB3ZNRk0"
+  end
+
+  def get_search_results
     twitter_search_results = []
     TWITTER.search(handle).each do |tweet|
       # we're saving the tweet user's name and the tweet text in an array of arrays

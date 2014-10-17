@@ -8,7 +8,7 @@ resources:
 
 We've already worked with [Rack to query the Twitter API](http://learn.flatironschool.com/lessons/1086) and get the latest @flatironschool tweets. Let's work through how to do the same thing with Sinatra. 
 
-Go to each file sequentially and read the comments. They should guide you to the next file in the application's path. Below the order of operations as well.
+Go to each file sequentially and read the comments. They should guide you to the next file in the application's path. Below is the order of the application as well.
 
 First, the Anatomy of a Basic Sinatra App
 
@@ -31,11 +31,13 @@ First, the Anatomy of a Basic Sinatra App
 └── views # template files that render HTML
 ```
 
-Go through these sequentially:
+Go through these files sequentially:
 
 1. `models/twitter_connection.rb`
-2. `config.ru`
-3. `app.rb`
-4. `views/tweets.erb`
+2. `app.rb`
+3. `views/tweets.erb`
+4. `config.ru`
 
-Run `rackup` to see the tweets!
+Run `bundle` and then `rackup`. Then go to `http://localhost:9292` to see the tweets!
+
+When you're done, run `rspec` and pass the one test.
