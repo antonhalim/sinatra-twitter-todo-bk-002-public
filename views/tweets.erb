@@ -1,0 +1,6 @@
+<h1>Flatiron School Tweets!</h1>
+
+<% @tweets.each do |tweet| %>
+<!--   Remember our @tweets is an array of arrays -->
+  <p> <%= tweet[0] %>: <%= tweet[1] %> </p>
+<% end %>
