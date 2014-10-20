@@ -1,6 +1,6 @@
-# This class handles connecting to the Twitter API. In Rack Todo, this lived in app.rb. Here's we've abstracted it out into it's own class. 
+# This class handles connecting to the Twitter API. In Rack Todo, this lived in app.rb. Here's we've abstracted it out into its own class. This class we will then initialize in app.rb.
 
-# Our Gemfile has the twitter gem and config/environment requires it.
+# Our Gemfile has the twitter gem and config/environment requires it through Bundler.
 
 class GetTweets
   attr_reader :handle

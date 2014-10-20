@@ -1,5 +1,9 @@
 require_relative 'config/environment'
 
+# this file is our main web server program. Sinatra has built in methods for HTTP methods (get, post, puts, delete) which the App class (we named it that; you can call it anything) gets from inheriting from Sinatra::Base.
+
+# you can think of this file as the Controller of the Model/View/Controller (MVC) architecture: http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+
 class App < Sinatra::Base
 
   # this route is a GET request to our application. It will handle delivering the tweets

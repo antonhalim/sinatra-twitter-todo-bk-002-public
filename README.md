@@ -1,7 +1,7 @@
 ---
 tags: sinatra, todo, twitter api, tutorial
 languages: ruby
-resources: 
+resources: 4
 ---
 
 # Sinatra Twitter Todo
@@ -16,10 +16,10 @@ First, the Anatomy of a Basic Sinatra App
 ├── Gemfile
 ├── README.md
 ├── Rakefile
-├── app.rb # where the routes live
+├── app.rb # the main web server program
 ├── config
 │   └── environment.rb # project manifest where files are required
-├── config.ru # after requiring all of the files, run App (app.rb)
+├── config.ru # after requiring all of the files, this runs App (app.rb)
 ├── models # classes and ActiveRecord models
 ├── public # front-end stuff
 │   ├── images
@@ -31,13 +31,35 @@ First, the Anatomy of a Basic Sinatra App
 └── views # template files that render HTML
 ```
 
-Go through these files sequentially:
+Go through these files sequentially and follow the comments:
 
-1. `models/twitter_connection.rb`
-2. `app.rb`
-3. `views/tweets.erb`
-4. `config.ru`
+1. `config/environment.rb`
+2. `models/get_tweets.rb`
+3. `app.rb`
+4. `views/tweets.erb`
+5. `config.ru`
 
-Run `bundle` and then `rackup`. Then go to `http://localhost:9292` to see the tweets!
+Run `bundle` and then `rackup`. Then go to `http://localhost:9292` to see the tweets! Play around with getting tweets for other search queries, or, tweet @flatironschool and see your tweet! If you make any changes to the code, you'll need to restart the server and `rackup` again.
 
-When you're done, run `rspec` and pass the one test.
+## Specs
+
+There's one test, which should already be passing. Let's take a look at it:
+
+```ruby
+it "handles GET to '/'" do 
+  get '/'
+  expect(last_response).to be_ok
+  expect(last_response.status).to eq(200)
+end
+```
+
+We're using the Rack::Test module in our specs to make a get request to '/'. The tests expects the status response to be ok (aka, 200). Refer back to the [Status Codes](http://learn.flatironschool.com/admin/lessons/122) lesson.
+
+In other words, what this test is expecting is that all of our code, from start to finish (our code in our GetTweets class, our get method in `app.rb`, and our rendering of data in our ERB file) results in an ok (200) response from our server.
+
+## Resources
+
+* [Sinatra Routes](http://www.sinatrarb.com/intro.html#Routes)
+* [ERB Templates with Sinatra](http://www.sinatrarb.com/intro.html#Views%20/%20Templates)
+* [Rack Middleware](http://www.sinatrarb.com/intro.html#Rack%20Middleware)
+* [Rack::Test Module in Sinatra](http://www.sinatrarb.com/intro.html#Testing)
