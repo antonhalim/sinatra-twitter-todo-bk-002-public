@@ -6,7 +6,7 @@ resources: 4
 
 # Sinatra Twitter Todo
 
-We've already worked with [Rack to query the Twitter API](http://learn.flatironschool.com/lessons/1086) and get the latest @flatironschool tweets. Let's work through how to do the same thing with Sinatra. 
+We're going to use Sinatra to get the latest @flatironschool tweets.
 
 Go to each file sequentially and read the comments. They should guide you to the next file in the application's path. Below is the order of the application as well.
 
